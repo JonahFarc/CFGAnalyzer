@@ -51,5 +51,5 @@ class Analyzer(ast.NodeVisitor):
 
 
 if __name__ == "__main__":
-    print(get_imports_from_file("backdoor.py"))
-    print(get_imports_from_file("defaults.py"))
+    #print(get_imports_from_file("backdoor.py"))
+    print(get_imports_from_file("../django/django/views/defaults.py"))
