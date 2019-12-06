@@ -1,4 +1,5 @@
 import cfg
+import argparse
 
 def check(attack, path):
   attack_length = len(attack)
@@ -21,6 +22,10 @@ def check(attack, path):
       function_found = False
   return True
   
+parser = argparse.ArgumentParser()
+parser.add_argument('-s','--source', action='store_true', help='print source code')
+args = parser.parse_args()
+
 attack_list = []
 
 # For each attack vector to detect, include its sequence of function calls here & append to attack_list
@@ -41,4 +46,9 @@ for attack in attack_list:
       print(call_path)
       print("Line numbers: ")
       print([x.rid for x in node_call_path])
+      if args.source:
+        print("Source: ")
+        for x in node_call_path:
+          print(x.source())
+
       print("-------------------------------------------------------------------------------------------")
