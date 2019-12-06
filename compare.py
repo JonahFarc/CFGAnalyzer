@@ -4,7 +4,7 @@ def check(attack, path):
   attack_length = len(attack)
   path_length = len(path)
   
-  if path_length < attack_length
+  if path_length < attack_length:
     return False
     
   start = 0
@@ -31,15 +31,12 @@ attack_list.append(attack1)
 function_calls_list = cfg.get_call_paths()
 
 # Check if attack vector exists in code
-for attack in range(len(attack_list)):
-  attack_found = False
-  for path in range(len(function_calls_list)):
-    attack_found = check(attack_list[attack], function_calls_list[path])
-    if attack_found:
+for attack in attack_list:
+  for call_path in function_calls_list:
+    if check(attack, call_path):
       print("-------------------------------------------------------------------------------------------")
       print("Possible attack found: ")
-      print(attack_list[attack])
+      print(attack)
       print("Found at path: ")
-      print(function_calls_list[path])
+      print(call_path)
       print("-------------------------------------------------------------------------------------------")
-      attack_found = False
