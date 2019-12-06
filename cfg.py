@@ -75,21 +75,23 @@ def traverse(cfgnode, funcs):
 
   return biglist
 
-cfg = PyCFG()
-cfg.gen_cfg(slurp("/mnt/c/Users/dylan/programming/6332/CFGAnalyzer/vulns/backdoor.py").strip())
-cfg2 = PyCFG()
-cfg2.gen_cfg(slurp("/mnt/c/Users/dylan/programming/6332/django/django/views/defaults.py").strip())
-g = CFGNode.to_graph([])
-totalfuncs = {}
-totalfuncs.update(cfg.functions)
-totalfuncs.update(cfg2.functions)
-#print("CFG FUNCS: ")
-#print(cfg.functions)
-#print("CFG2 FUNCS: ")
-#print(cfg2.functions)
-#print("TOTALFUNCS: ")
-#print(totalfuncs)
-#print("END OF TOTAL FUNCS")
-biglist = traverse(cfg2.functions['page_not_found'][0], totalfuncs)
-for x in range(len(biglist)):
-  print(biglist[x])
+def get_call_paths():
+  cfg = PyCFG()
+  cfg.gen_cfg(slurp("/mnt/c/Users/dylan/programming/6332/CFGAnalyzer/vulns/backdoor.py").strip())
+  cfg2 = PyCFG()
+  cfg2.gen_cfg(slurp("/mnt/c/Users/dylan/programming/6332/django/django/views/defaults.py").strip())
+  g = CFGNode.to_graph([])
+  totalfuncs = {}
+  totalfuncs.update(cfg.functions)
+  totalfuncs.update(cfg2.functions)
+  #print("CFG FUNCS: ")
+  #print(cfg.functions)
+  #print("CFG2 FUNCS: ")
+  #print(cfg2.functions)
+  #print("TOTALFUNCS: ")
+  #print(totalfuncs)
+  #print("END OF TOTAL FUNCS")
+  biglist = traverse(cfg2.functions['page_not_found'][0], totalfuncs)
+  for x in range(len(biglist)):
+    print(biglist[x])
+  return biglist
