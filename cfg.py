@@ -10,6 +10,8 @@ def traverse(cfgnode, funcs):
   #path = path+[cfgnode]
   biglist = []
   routes = []
+  noderoutes = []
+  nodebiglist = []
   # If call is made, iterate or determine built-in
   if len(cfgnode.calls) > 0:
     test = []
@@ -21,7 +23,10 @@ def traverse(cfgnode, funcs):
         pass
     for node in test:
       # routes holds all the possible routes the program could have taken
-      routes += traverse(node, funcs)
+      temp = traverse(node,funcs)
+      routes += temp[0]
+      noderoutes += temp[1]
+      #routes = traverse(node, funcs)
   
   # If there's no children finish up calls and exit
   if len(cfgnode.children) == 0:
@@ -32,14 +37,22 @@ def traverse(cfgnode, funcs):
       routes[x] = [x for x in cfgnode.calls if x not in funcs.keys() and x is not "print"] + routes[x]
     if(len(routes) == 0):
       routes = [[x for x in cfgnode.calls if x not in funcs.keys() and x is not "print"]]
+
+    for x in range(len(noderoutes)):
+      noderoutes[x] = [cfgnode for call in cfgnode.calls if call not in funcs.keys() and call is not "print"] + noderoutes[x]
+    if(len(noderoutes) == 0):
+      noderoutes = [[cfgnode for call in cfgnode.calls if call not in funcs.keys() and call is not "print"]]
     
     biglist = routes
+    nodebiglist = noderoutes
 
-    return biglist
+    return biglist, nodebiglist
 
   # Traverse children/all branches
   branches = []
   route = []
+  noderoute = []
+  nodebranches = []
   for child in cfgnode.children:
     # Check if entering was already done in routes
     skip = False
@@ -55,12 +68,14 @@ def traverse(cfgnode, funcs):
 
     # If returning to an iteration, we just exit the iteration (it's too hard to track!)
     if child.rid < cfgnode.rid and ((str(child.source()).split(':')[0] == "_for") or (str(child.source()).split(':')[0] == "_while")):
-      route = traverse(child.children[-1], funcs)
+      route, noderoute = traverse(child.children[-1], funcs)
       branches += [x for x in route if x not in branches]
+      nodebranches += [x for x in noderoute if x not in nodebranches]
       continue
     else:
-      route = traverse(child, funcs)
+      route, noderoute = traverse(child, funcs)
       branches += [x for x in route if x not in branches]
+      nodebranches += [x for x in noderoute if x not in nodebranches]
 
   # Prepend with current call
   for x in range(len(routes)):
@@ -68,12 +83,28 @@ def traverse(cfgnode, funcs):
   if(len(routes) == 0):
     routes = [[x for x in cfgnode.calls if x not in funcs.keys() and x is not "print"]]
   
+  for x in range(len(noderoutes)):
+    noderoutes[x] = [cfgnode for call in cfgnode.calls if call not in funcs.keys() and call is not "print"] + noderoutes[x]
+  if(len(noderoutes) == 0):
+    noderoutes = [[cfgnode for call in cfgnode.calls if call not in funcs.keys() and call is not "print"]]
+
+  for x in range(len(noderoutes)):
+    for y in range(len(noderoutes[x])-1):
+      if noderoutes[x][y] == noderoutes[x][y+1]:
+        noderoutes[x].remove(noderoutes[x][y])
+        y-=1
+
+
   # Create final list
   biglist = [x+y for x in routes for y in branches]
   if len(branches) == 0:
     biglist = routes
 
-  return biglist
+  nodebiglist = [x+y for x in noderoutes for y in nodebranches]
+  if len(nodebranches) == 0:
+    nodebiglist = noderoutes
+
+  return biglist, nodebiglist
 
 def get_call_paths(test="/mnt/c/Users/dylan/programming/6332/django/django/views/defaults.py", imports=["/mnt/c/Users/dylan/programming/6332/CFGAnalyzer/vulns/backdoor.py"]):
   cfg_imports = []
@@ -82,7 +113,6 @@ def get_call_paths(test="/mnt/c/Users/dylan/programming/6332/django/django/views
     newcfg.gen_cfg(slurp(path).strip())
     #cfg_imports.append(PyCFG().gen_cfg(slurp(path).strip()))
     cfg_imports.append(newcfg)
-  print(cfg_imports)
   cfg = PyCFG()
   cfg.gen_cfg(slurp(test).strip())
   g = CFGNode.to_graph([])
@@ -97,8 +127,8 @@ def get_call_paths(test="/mnt/c/Users/dylan/programming/6332/django/django/views
   #print("TOTALFUNCS: ")
   #print(totalfuncs)
   #print("END OF TOTAL FUNCS")
-  biglist = traverse(cfg.functions['page_not_found'][0], totalfuncs)
+  biglist, nodebiglist = traverse(cfg.functions['page_not_found'][0], totalfuncs)
   print("Call paths: ")
   for x in range(len(biglist)):
     print(biglist[x])
-  return biglist
+  return biglist, nodebiglist

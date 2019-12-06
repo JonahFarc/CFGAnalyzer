@@ -28,15 +28,17 @@ attack1 = ['socket', 'bind', 'listen', 'accept', 'decode', 'Popen']
 attack_list.append(attack1)
 
 # get list of each path of function calls for the file
-function_calls_list = cfg.get_call_paths()
+function_calls_list, node_calls_list = cfg.get_call_paths()
 
 # Check if attack vector exists in code
 for attack in attack_list:
-  for call_path in function_calls_list:
+  for call_path, node_call_path in zip(function_calls_list, node_calls_list):
     if check(attack, call_path):
       print("-------------------------------------------------------------------------------------------")
       print("Possible attack found: ")
       print(attack)
       print("Found at path: ")
       print(call_path)
+      print("Line numbers: ")
+      print([x.rid for x in node_call_path])
       print("-------------------------------------------------------------------------------------------")
